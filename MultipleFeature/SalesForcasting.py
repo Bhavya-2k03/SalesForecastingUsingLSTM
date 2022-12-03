@@ -1,23 +1,23 @@
 import os
+import gdown
 import pandas as pd
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Dropout
+from keras.preprocessing.sequence import TimeseriesGenerator
 import numpy as np
 from sklearn import preprocessing
 import tensorflow as tf
 import xlsxwriter
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
-from email import encoders
 
+
+url='https://drive.google.com/file/d/1EBe213TESkHvEwOJu_LpVpt3736MsWQh/view?usp=share_link'
+output="SalesForTrain&Test.csv"
 if os.path.exists("SalesForTrain&Test.csv"):
     pass
 else:    
-    wget.download("https://drive.google.com/file/d/1EBe213TESkHvEwOJu_LpVpt3736MsWQh/view?usp=share_link")
+    gdown.download(url,output,fuzzy=True)
 
 
 
@@ -49,13 +49,12 @@ encoded=encoded.reshape((len(df["Sales"]),1))
 final3=np.array((encoded[:train_length],scaled_ad_spend[:train_length],scaled_discount[:train_length]))
 
 test=np.array((encoded[train_length:],scaled_ad_spend[train_length:],scaled_discount[train_length:]))
-# print(test.shape)
 
 test=test.reshape((test_lenth,3))
 
 final3=final3.reshape((train_length,3))
 
-from keras.preprocessing.sequence import TimeseriesGenerator
+
 n_input=3
 n_features=3
 generator=TimeseriesGenerator(final3,scaled_sales[:train_length],length=n_input,batch_size=1)
@@ -111,7 +110,7 @@ for i in range(0,test_lenth):
         predictions.append(model.predict(current_batch)[0])
 
 scaled_predictions = scaler.inverse_transform(predictions)
-print(scaled_predictions)
+# print(scaled_predictions)
 true_predictions=[]
 
 for y in range(0,len(scaled_predictions)):
@@ -148,4 +147,4 @@ for i in true_predictions :
 workbook.close()
 
 print("Done!")
-
+print(f'Results are stored in {Workbookname}.xlsx')
