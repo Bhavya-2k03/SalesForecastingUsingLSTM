@@ -1,8 +1,8 @@
 # Hey! Welcome to my repo :)   
 
-In order for the model to work these are the requirments.  
+These are the prerequisites for the model to function.  
 
-1.) The given csv should be in the following form for the model to work.  
+1.) The given csv should be in the following form.  
 
 ![Sales_template](https://user-images.githubusercontent.com/100507234/205450679-6422bfa8-1f1d-4ce4-bba1-1f5f701add53.jpg)  
 
