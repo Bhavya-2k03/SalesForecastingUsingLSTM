@@ -1,4 +1,4 @@
-# SalesForecastingUsingLSTM  
+# Sales Forecasting Using LSTM  
 
 This is an LSTM-based, sales prediction model to predict the Sales of different kinds of Businesses.  
 
