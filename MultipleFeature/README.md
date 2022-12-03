@@ -12,7 +12,7 @@ These are the prerequisites for the model to function.
 
 4.) Leave the rows of sales column empty for which you want to predict the sales.  
 
-5.) Final predictions will be saved in a excel file in the working directory.
+5.) Final predictions will be saved in a excel file in the working directory.(The excel file will be automatically created)
 
 For any query or feedback, feel free to contact me at bhavya.2k03@gmail.com  
 
