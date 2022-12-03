@@ -8,7 +8,7 @@ These are the prerequisites for the model to function.
 
 2.) The target column is sales.  
 
-3.) There is no restrictions on the number of rows.  
+3.) There is no restriction on the number of rows.  
 
 4.) Leave the rows of sales column empty for which you want to predict the sales.  
 
